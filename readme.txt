@@ -2,7 +2,7 @@
 Contributors: parteieuropa
 Tags: blocks, gutenberg, block editor, editor, admin
 Requires at least: 5.8
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
@@ -22,12 +22,12 @@ Features:
 * "Enable all" / "Disable all" helpers.
 * Works with core, third-party and custom blocks alike.
 * Uses the native `allowed_block_types_all` filter — no editor hacks.
-* Fully translatable (text domain `wp-block-manager`).
+* Fully translatable (text domain `parteieuropa-block-manager`).
 * Cleans up after itself on uninstall.
 
 == Installation ==
 
-1. Upload the `wp-block-manager` folder to `/wp-content/plugins/`, or install the plugin through the Plugins screen in WordPress.
+1. Upload the `parteieuropa-block-manager` folder to `/wp-content/plugins/`, or install the plugin through the Plugins screen in WordPress.
 2. Activate the plugin through the "Plugins" screen.
 3. Go to **Settings → Block Manager** and choose which blocks to enable.
 

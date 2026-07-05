@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       parteieuropa.eu - Block Manager
- * Plugin URI:        https://github.com/Die-PARTEI-in-Europa/wp-block-manager
+ * Plugin URI:        https://github.com/Die-PARTEI-in-Europa/parteieuropa-block-manager
  * Description:       A simple admin screen to enable or disable individual Gutenberg blocks in the editor via allowed_block_types_all. Works with any registered block.
  * Version:           1.0.0
  * Requires at least: 5.8
@@ -10,7 +10,7 @@
  * Author URI:        https://parteieuropa.eu
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wp-block-manager
+ * Text Domain:       parteieuropa-block-manager
  * Domain Path:       /languages
  *
  * @package WP_Block_Manager
@@ -43,25 +43,16 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 		 *
 		 * @var string
 		 */
-		const PAGE = 'wp-block-manager';
+		const PAGE = 'parteieuropa-block-manager';
 
 		/**
 		 * Wire up hooks.
 		 */
 		public function __construct() {
-			add_action( 'init', array( $this, 'load_textdomain' ) );
 			add_action( 'admin_menu', array( $this, 'add_page' ) );
 			add_action( 'admin_post_parteieuropa_block_manager_save', array( $this, 'save' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 			add_filter( 'allowed_block_types_all', array( $this, 'filter_allowed_blocks' ), 10, 2 );
-		}
-
-		/**
-		 * Load translations. (Not strictly required on WordPress.org since 4.6,
-		 * but kept for self-hosted installs.)
-		 */
-		public function load_textdomain() {
-			load_plugin_textdomain( 'wp-block-manager', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		}
 
 		/**
@@ -70,8 +61,8 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 		public function add_page() {
 			add_submenu_page(
 				'options-general.php',
-				__( 'Block Manager', 'wp-block-manager' ),
-				__( 'Block Manager', 'wp-block-manager' ),
+				__( 'Block Manager', 'parteieuropa-block-manager' ),
+				__( 'Block Manager', 'parteieuropa-block-manager' ),
 				'manage_options',
 				self::PAGE,
 				array( $this, 'render_page' )
@@ -88,13 +79,13 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 				return;
 			}
 			wp_enqueue_style(
-				'wp-block-manager-admin',
+				'parteieuropa-block-manager-admin',
 				plugins_url( 'assets/admin.css', __FILE__ ),
 				array(),
 				PARTEIEUROPA_BLOCK_MANAGER_VERSION
 			);
 			wp_enqueue_script(
-				'wp-block-manager-admin',
+				'parteieuropa-block-manager-admin',
 				plugins_url( 'assets/admin.js', __FILE__ ),
 				array(),
 				PARTEIEUROPA_BLOCK_MANAGER_VERSION,
@@ -124,7 +115,7 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 		 */
 		public function save() {
 			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_die( esc_html__( 'You are not allowed to do this.', 'wp-block-manager' ) );
+				wp_die( esc_html__( 'You are not allowed to do this.', 'parteieuropa-block-manager' ) );
 			}
 			check_admin_referer( 'parteieuropa_block_manager_save' );
 
@@ -168,7 +159,7 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 					}
 				}
 			}
-			$labels['uncategorized'] = __( 'Uncategorized', 'wp-block-manager' );
+			$labels['uncategorized'] = __( 'Uncategorized', 'parteieuropa-block-manager' );
 			return $labels;
 		}
 
@@ -197,12 +188,12 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 			<div class="wrap fbm">
 				<h1 class="fbm__title">
 					<span class="fbm__icon" aria-hidden="true">🧩</span>
-					<?php echo esc_html__( 'Block Manager', 'wp-block-manager' ); ?>
+					<?php echo esc_html__( 'Block Manager', 'parteieuropa-block-manager' ); ?>
 				</h1>
-				<p class="fbm__intro"><?php echo esc_html__( 'Choose which blocks are available in the block editor.', 'wp-block-manager' ); ?></p>
+				<p class="fbm__intro"><?php echo esc_html__( 'Choose which blocks are available in the block editor.', 'parteieuropa-block-manager' ); ?></p>
 
 				<?php if ( $saved ) : ?>
-					<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Settings saved.', 'wp-block-manager' ); ?></p></div>
+					<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Settings saved.', 'parteieuropa-block-manager' ); ?></p></div>
 				<?php endif; ?>
 
 				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
@@ -210,9 +201,9 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 					<?php wp_nonce_field( 'parteieuropa_block_manager_save' ); ?>
 
 					<div class="fbm__toolbar">
-						<button type="button" class="button" data-fbm-toggle="on"><?php echo esc_html__( 'Enable all', 'wp-block-manager' ); ?></button>
-						<button type="button" class="button" data-fbm-toggle="off"><?php echo esc_html__( 'Disable all', 'wp-block-manager' ); ?></button>
-						<?php submit_button( __( 'Save', 'wp-block-manager' ), 'primary', 'submit', false ); ?>
+						<button type="button" class="button" data-fbm-toggle="on"><?php echo esc_html__( 'Enable all', 'parteieuropa-block-manager' ); ?></button>
+						<button type="button" class="button" data-fbm-toggle="off"><?php echo esc_html__( 'Disable all', 'parteieuropa-block-manager' ); ?></button>
+						<?php submit_button( __( 'Save', 'parteieuropa-block-manager' ), 'primary', 'submit', false ); ?>
 					</div>
 
 					<?php foreach ( $grouped as $cat => $blocks ) : ?>
@@ -226,7 +217,7 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 								<span class="fbm__count">
 									<?php
 									/* translators: %s: number of blocks in the category. */
-									echo esc_html( sprintf( _n( '%s block', '%s blocks', $count, 'wp-block-manager' ), number_format_i18n( $count ) ) );
+									echo esc_html( sprintf( _n( '%s block', '%s blocks', $count, 'parteieuropa-block-manager' ), number_format_i18n( $count ) ) );
 									?>
 								</span>
 							</div>
@@ -249,7 +240,7 @@ if ( ! class_exists( 'Parteieuropa_Block_Manager' ) ) :
 					<?php endforeach; ?>
 
 					<div class="fbm__footer">
-						<?php submit_button( __( 'Save', 'wp-block-manager' ), 'primary', 'submit', false ); ?>
+						<?php submit_button( __( 'Save', 'parteieuropa-block-manager' ), 'primary', 'submit', false ); ?>
 					</div>
 				</form>
 			</div>

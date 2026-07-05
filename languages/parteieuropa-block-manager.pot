@@ -3,51 +3,51 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: parteieuropa.eu - Block Manager 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/Die-PARTEI-in-Europa/wp-block-manager/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/Die-PARTEI-in-Europa/parteieuropa-block-manager/issues\n"
 "Language-Team: parteieuropa.eu <kontakt@parteieuropa.eu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Domain: wp-block-manager\n"
+"X-Domain: parteieuropa-block-manager\n"
 
 #. Plugin Name of the plugin
 msgid "parteieuropa.eu - Block Manager"
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "Block Manager"
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "Choose which blocks are available in the block editor."
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "Settings saved."
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "Enable all"
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "Disable all"
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "Save"
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "You are not allowed to do this."
 msgstr ""
 
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "Uncategorized"
 msgstr ""
 
 #. translators: %s: number of blocks in the category.
-#: wp-block-manager.php
+#: parteieuropa-block-manager.php
 msgid "%s block"
 msgid_plural "%s blocks"
 msgstr[0] ""

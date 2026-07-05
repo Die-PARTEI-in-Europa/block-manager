@@ -25,8 +25,8 @@ jobs:
       - name: Build plugin ZIP
         run: |
           VERSION="${GITHUB_REF_NAME#v}"
-          echo "Building wp-block-manager ${VERSION}"
-          mkdir -p build/wp-block-manager
+          echo "Building parteieuropa-block-manager ${VERSION}"
+          mkdir -p build/parteieuropa-block-manager
           rsync -a \
             --exclude '.git' \
             --exclude '.github' \
@@ -34,12 +34,12 @@ jobs:
             --exclude 'deploy.sh' \
             --exclude '*.zip' \
             --exclude 'build' \
-            ./ build/wp-block-manager/
-          ( cd build && zip -rq "../wp-block-manager-${VERSION}.zip" wp-block-manager )
-          unzip -l "wp-block-manager-${VERSION}.zip"
+            ./ build/parteieuropa-block-manager/
+          ( cd build && zip -rq "../parteieuropa-block-manager-${VERSION}.zip" parteieuropa-block-manager )
+          unzip -l "parteieuropa-block-manager-${VERSION}.zip"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: wp-block-manager-*.zip
+          files: parteieuropa-block-manager-*.zip
           generate_release_notes: true
