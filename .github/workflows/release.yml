@@ -45,4 +45,4 @@ jobs:
           gh release create "${GITHUB_REF_NAME}" \
             parteieuropa-block-manager-*.zip \
             --title "${GITHUB_REF_NAME}" \
-            --generate-notes
+            --notes "parteieuropa.eu - Block Manager ${GITHUB_REF_NAME}. See readme.txt for the changelog."
