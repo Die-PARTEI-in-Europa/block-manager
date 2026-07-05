@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       parteieuropa.eu - Block Manager
- * Plugin URI:        https://github.com/Die-PARTEI-in-Europa/parteieuropa-block-manager
+ * Plugin URI:        https://github.com/Die-PARTEI-in-Europa/block-manager
  * Description:       A simple admin screen to enable or disable individual Gutenberg blocks in the editor via allowed_block_types_all. Works with any registered block.
  * Version:           1.0.0
  * Requires at least: 5.8

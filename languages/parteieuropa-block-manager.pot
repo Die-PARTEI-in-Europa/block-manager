@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: parteieuropa.eu - Block Manager 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/Die-PARTEI-in-Europa/parteieuropa-block-manager/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/Die-PARTEI-in-Europa/block-manager/issues\n"
 "Language-Team: parteieuropa.eu <kontakt@parteieuropa.eu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
